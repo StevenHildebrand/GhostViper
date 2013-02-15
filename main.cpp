@@ -10,7 +10,7 @@ Project code named:  Ghost Viper
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>		// for randomizer seed
-#include <algorithm> 	// required for array sort
+#include <algorithm> 		// required for sort()
 #include <iomanip>
 #include <vector>
 #include <numeric>
@@ -23,9 +23,6 @@ Project code named:  Ghost Viper
 using namespace std;
 
 /*
-vector<int> roll;		//Would like to replace array with vector eventually
-
-
 void randomizer ()		//randomizer() function required for C++98
 {
 
@@ -45,15 +42,13 @@ void dice (int num, int sides)
     default_random_engine generator;
     uniform_int_distribution<int> distribution(1,sides);
     auto toss = bind ( distribution, generator );
-
-    roll.clear();
     			*/
 
     int roll[num];
     int sum=0;
 
-			// for loop generates randoms, populates array, and sums
-    for (int x=0; x<num; x++)
+			
+    for (int x=0; x<num; x++) // for loop generates randoms, populates array, and sums
     {
         int r = 0;
         r = rne() % sides + 1;
@@ -84,7 +79,8 @@ void dice (int num, int sides)
 
 vector<int> diceVector (int num, int sides)
 {
-    //mt19937_64 rne((unsigned int)time(0));
+    /*mt19937_64 rne((unsigned int)time(0));
+    	other generators for testing later */
     random_device rne;
 
     vector<int> roll;
